@@ -359,6 +359,7 @@ section {
   padding: 2rem;
   border-radius: 12px;
   border: 1px solid #4a5568;
+  transition: opacity 0.3s ease;
 }
 
 .form-group {
@@ -381,6 +382,7 @@ section {
   border-radius: 6px;
   color: #ffffff;
   font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
 .form-group input:focus,
@@ -404,10 +406,98 @@ section {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
+  position: relative;
+  width: 100%;
 }
 
 .submit-btn:hover {
   background-color: #38b2ac;
+}
+
+.submit-btn:disabled {
+  background-color: #2d3748;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Button loader states */
+.btn-loader {
+  display: none;
+}
+
+.submit-btn.loading .btn-text {
+  display: none;
+}
+
+.submit-btn.loading .btn-loader {
+  display: inline;
+}
+
+/* Success and Error Messages */
+.form-message {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  display: none;
+  animation: slideDown 0.5s ease;
+}
+
+.form-message.show {
+  display: block;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-message {
+  background-color: #2d3748;
+  border: 2px solid #4fd1c7;
+  color: #ccd6f6;
+}
+
+.error-message {
+  background-color: #2d3748;
+  border: 2px solid #fc8181;
+  color: #ccd6f6;
+}
+
+.message-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.success-message .message-icon {
+  color: #4fd1c7;
+}
+
+.error-message .message-icon {
+  color: #fc8181;
+}
+
+.form-message h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.form-message p {
+  color: #cbd5e0;
+  font-size: 1rem;
+}
+
+/* Hide form when message is shown */
+.contact-form.hidden {
+  display: none;
 }
 
 /* ------ FOOTERRRRRR ------ */
