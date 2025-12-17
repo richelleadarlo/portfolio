@@ -16,15 +16,32 @@ body {
   line-height: 1.6;
 }
 
+/* Add smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.litol-text{
+.litol-text {
   padding-bottom: 30px;
   padding-top: -30px;
+}
+
+/* Add scroll animation styles */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-animate.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Header */
@@ -51,6 +68,39 @@ header {
   font-weight: bold;
   color: #ccd6f6;
   text-decoration: none;
+  z-index: 1001;
+}
+
+/* Add hamburger menu styles for mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #ccd6f6;
+  transition: all 0.8s ease;
+  border-radius: 3px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 nav ul {
@@ -62,11 +112,11 @@ nav ul {
 nav a {
   color: #ccd6f6;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.5s;
 }
 
 nav a:hover {
-  color: #64ffda;
+  color: #64FFDA;
 }
 
 /* Hero Section */
@@ -86,13 +136,13 @@ nav a:hover {
 }
 
 .hero-content .highlight {
-  color: #4fd1c7; /* Updated color to #4fd1c7 as requested */
+  color: #64FFDA; 
 }
 
 /* Added cursor animation for typing effect */
 .cursor {
   display: inline-block;
-  color: #64ffda;
+  color: #64FFDA;
   animation: blink 0.7s infinite;
 }
 
@@ -128,7 +178,7 @@ nav a:hover {
   border: 2px solid #64ffda;
   text-decoration: none;
   border-radius: 6px;
-  transition: all 0.3s;
+  transition: all 0.5s;
 }
 
 .cta-button:hover {
@@ -145,14 +195,14 @@ section {
   font-size: 2.5rem;
   margin-bottom: 2rem;
   color: #ccd6f6;
-  border-bottom: 2px solid #4fd1c7;
+  border-bottom: 2px solid #64FFDA;
   display: inline-block;
   padding-bottom: 0.5rem;
 }
 
 .section-title::before {
   content: "/ ";
-  color: #4fd1c7;
+  color: #64FFDA;
 }
 
 /* ------ ABOUT ME ------ */
@@ -186,7 +236,7 @@ section {
 }
 
 .skills-category h3 {
-  color: #4fd1c7;
+  color: #64FFDA;
   margin-bottom: 1rem;
   font-size: 1.3rem;
 }
@@ -215,11 +265,11 @@ section {
 }
 
 .project-card {
-  background-color: #2d3748;
+  background-color: #10213E;
   padding: 2rem;
   border-radius: 12px;
-  border: 1px solid #4a5568;
-  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #2f3643;
+  transition: transform 0.8s, box-shadow 0.8s;
 }
 
 .project-card:hover {
@@ -239,7 +289,7 @@ section {
   height: 200px;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s;
+  transition: transform 0.6s;
 }
 
 .project-card:hover .project-image img {
@@ -264,7 +314,7 @@ section {
 }
 
 .project-links a {
-  color: #4fd1c7;
+  color: #64FFDA;
   text-decoration: none;
   margin-right: 1rem;
   font-weight: 500;
@@ -274,7 +324,7 @@ section {
   text-decoration: underline;
 }
 
-/* Added Pinterest-style masonry grid for My Designs section */
+/*Pinterest-style masonry grid*/
 /* ------ MY DESIGNS ------ */
 .designs-grid {
   display: grid;
@@ -288,7 +338,7 @@ section {
   overflow: hidden;
   border-radius: 12px;
   background-color: #2d3748;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.8s, box-shadow 0.8s;
   cursor: pointer;
 }
 
@@ -302,7 +352,7 @@ section {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s;
+  transition: transform 0.8s;
 }
 
 .design-item:hover img {
@@ -325,7 +375,7 @@ section {
 .education-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #2d3748;
+  background-color: #10213E;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -334,7 +384,7 @@ section {
 .education-table td {
   padding: 1.5rem;
   text-align: left;
-  border-bottom: 1px solid #4a5568;
+  border-bottom: 1px solid #3c4453;
 }
 
 .education-table th {
@@ -355,10 +405,11 @@ section {
 .contact-form {
   max-width: 600px;
   margin: 0 auto;
-  background-color: #2d3748;
+  background-color: #172e56;
   padding: 2rem;
   border-radius: 12px;
-  border: 1px solid #4a5568;
+  border: 1px solid #313945;
+  transition: opacity 0.5s ease;
 }
 
 .form-group {
@@ -381,12 +432,13 @@ section {
   border-radius: 6px;
   color: #ffffff;
   font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #4fd1c7;
+  border-color: #64FFDA;
 }
 
 .form-group textarea {
@@ -395,7 +447,7 @@ section {
 }
 
 .submit-btn {
-  background-color: #4fd1c7;
+  background-color: #64FFDA;
   color: #1a2332;
   padding: 12px 24px;
   border: none;
@@ -404,10 +456,98 @@ section {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
+  position: relative;
+  width: 100%;
 }
 
 .submit-btn:hover {
   background-color: #38b2ac;
+}
+
+.submit-btn:disabled {
+  background-color: #2d3748;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Button loader states */
+.btn-loader {
+  display: none;
+}
+
+.submit-btn.loading .btn-text {
+  display: none;
+}
+
+.submit-btn.loading .btn-loader {
+  display: inline;
+}
+
+/* Success and Error Messages */
+.form-message {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  display: none;
+  animation: slideDown 0.5s ease;
+}
+
+.form-message.show {
+  display: block;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-message {
+  background-color: #2d3748;
+  border: 2px solid #4fd1c7;
+  color: #ccd6f6;
+}
+
+.error-message {
+  background-color: #2d3748;
+  border: 2px solid #fc8181;
+  color: #ccd6f6;
+}
+
+.message-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.success-message .message-icon {
+  color: #64FFDA;
+}
+
+.error-message .message-icon {
+  color: #fc8181;
+}
+
+.form-message h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.form-message p {
+  color: #cbd5e0;
+  font-size: 1rem;
+}
+
+/* Hide form when message is shown */
+.contact-form.hidden {
+  display: none;
 }
 
 /* ------ FOOTERRRRRR ------ */
@@ -435,15 +575,73 @@ footer {
 }
 
 .social-links a:hover {
-  color: #4fd1c7;
+  color: #64FFDA;
 }
 
 .copyright {
   color: #94a3b8;
 }
 
+/* Enhanced responsive design for mobile navbar */
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Show hamburger menu on mobile */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Mobile navigation styles */
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    max-width: 250px;
+    background-color: rgba(26, 35, 50, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: right 0.5s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding: 80px 30px 30px;
+    gap: 0;
+  }
+
+  nav ul li {
+    border-bottom: 1px solid rgba(79, 209, 199, 0.2);
+  }
+
+  nav ul li:last-child {
+    border-bottom: none;
+  }
+
+  nav a {
+    display: block;
+    padding: 1.2rem 0;
+    font-size: 1.1rem;
+  }
+
+  /* Overlay when menu is open */
+  body.menu-open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+  }
+
   .hero-content h1 {
     font-size: 2.5rem;
   }
@@ -476,10 +674,31 @@ footer {
   }
 
   nav ul {
-    gap: 1rem;
+    gap: 0;
   }
 
   .section-title {
     font-size: 2rem;
+  }
+
+  /* Make education table responsive */
+  .education-table {
+    font-size: 0.85rem;
+  }
+
+  .education-table th,
+  .education-table td {
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* Additional tablet responsive adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  nav ul {
+    gap: 1.5rem;
+  }
+
+  nav a {
+    font-size: 0.95rem;
   }
 }
